@@ -31,7 +31,6 @@ struct Node* insertEnd(struct Node* head, int value) {
     temp->next = newNode;
     return head;
 }
-
 struct Node* findIntersection(struct Node* head1, struct Node* head2) {
 
     struct Node* ptr1 = head1;
