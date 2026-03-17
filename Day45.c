@@ -1,4 +1,4 @@
-// Perform inorder, preorder, and postorder traversals of a given binary tree.
+// Find the height (maximum depth) of a given binary tree.
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,6 +7,7 @@ struct Node {
     struct Node *left, *right;
 };
 
+// Create new node
 struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
@@ -15,25 +16,15 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-void inorder(struct Node* root) {
-    if(root == NULL) return;
-    inorder(root->left);
-    printf("%d ", root->data);
-    inorder(root->right);
-}
+// Function to find height
+int height(struct Node* root) {
+    if(root == NULL)
+        return 0;
 
-void preorder(struct Node* root) {
-    if(root == NULL) return;
-    printf("%d ", root->data);
-    preorder(root->left);
-    preorder(root->right);
-}
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);
 
-void postorder(struct Node* root) {
-    if(root == NULL) return;
-    postorder(root->left);
-    postorder(root->right);
-    printf("%d ", root->data);
+    return (leftHeight > rightHeight ? leftHeight : rightHeight) + 1;
 }
 
 int main() {
@@ -49,6 +40,7 @@ int main() {
     for(int i = 0; i < n; i++)
         scanf("%d", &arr[i]);
 
+    // Create nodes
     for(int i = 0; i < n; i++) {
         if(arr[i] == -1)
             nodes[i] = NULL;
@@ -56,6 +48,7 @@ int main() {
             nodes[i] = createNode(arr[i]);
     }
 
+    // Connect nodes
     for(int i = 0; i < n; i++) {
         if(nodes[i] != NULL) {
             int left = 2*i + 1;
@@ -63,22 +56,15 @@ int main() {
 
             if(left < n)
                 nodes[i]->left = nodes[left];
+
             if(right < n)
                 nodes[i]->right = nodes[right];
         }
     }
-    int WinMain() { return main(); }
 
-    struct Node* root = nodes[0];
+    int h = height(nodes[0]);
 
-    printf("\nInorder Traversal:\n");
-    inorder(root);
-
-    printf("\n\nPreorder Traversal:\n");
-    preorder(root);
-
-    printf("\n\nPostorder Traversal:\n");
-    postorder(root);
+    printf("Height of the tree: %d", h);
 
     return 0;
 }
