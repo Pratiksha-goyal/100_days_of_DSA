@@ -67,6 +67,7 @@ int main() {
                 nodes[i]->right = nodes[right];
         }
     }
+    
     int WinMain() { return main(); }
 
     struct Node* root = nodes[0];
