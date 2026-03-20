@@ -7,7 +7,6 @@ struct Node {
     struct Node *left, *right;
 };
 
-// Create new node
 struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
@@ -16,7 +15,6 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-// Function to find height
 int height(struct Node* root) {
     if(root == NULL)
         return 0;
@@ -40,7 +38,6 @@ int main() {
     for(int i = 0; i < n; i++)
         scanf("%d", &arr[i]);
 
-    // Create nodes
     for(int i = 0; i < n; i++) {
         if(arr[i] == -1)
             nodes[i] = NULL;
@@ -48,7 +45,6 @@ int main() {
             nodes[i] = createNode(arr[i]);
     }
 
-    // Connect nodes
     for(int i = 0; i < n; i++) {
         if(nodes[i] != NULL) {
             int left = 2*i + 1;
