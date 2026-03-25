@@ -1,3 +1,4 @@
+// Clear Digit
 char* clearDigits(char* s) {
     int n = strlen(s);
     int top = -1;
