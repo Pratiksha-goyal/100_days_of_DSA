@@ -4,13 +4,11 @@
 int main() {
     int n;
 
-    // Input size of array
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
     int arr[n];
 
-    // Input array elements
     printf("Enter elements:\n");
     for(int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
@@ -20,7 +18,6 @@ int main() {
 
     int index[1000];
     
-    // Initialize index array with -1
     for(int i = 0; i < 1000; i++)
         index[i] = -1;
 
