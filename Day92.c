@@ -1,3 +1,4 @@
+// Implement Quick Sort using partition method (Lomuto or Hoare).
 #include <stdio.h>
 
 // Swap helper
