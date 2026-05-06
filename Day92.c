@@ -1,18 +1,15 @@
 // Implement Quick Sort using partition method (Lomuto or Hoare).
 #include <stdio.h>
 
-// Swap helper
 void swap(int *a, int *b) {
     int t = *a;
     *a = *b;
     *b = t;
 }
 
-// Lomuto partition: pivot = arr[high]
 int partition(int arr[], int low, int high) {
     int pivot = arr[high];
-    int i = low - 1;  // place for smaller elements
-
+    int i = low - 1;  
     for (int j = low; j < high; j++) {
         if (arr[j] <= pivot) {
             i++;
@@ -20,11 +17,10 @@ int partition(int arr[], int low, int high) {
         }
     }
 
-    swap(&arr[i + 1], &arr[high]); // put pivot in correct place
-    return i + 1;                  // pivot index
+    swap(&arr[i + 1], &arr[high]); 
+    return i + 1;              
 }
 
-// Quick Sort
 void quickSort(int arr[], int low, int high) {
     if (low < high) {
         int pi = partition(arr, low, high);
