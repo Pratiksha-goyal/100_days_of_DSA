@@ -1,3 +1,4 @@
+// Sort an array using insertion sort.
 #include <stdio.h>
 
 int main() {
@@ -13,12 +14,10 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    // Insertion Sort (Stable)
     for (int i = 1; i < n; i++) {
         int key = arr[i];
         int j = i - 1;
 
-        // Shift only elements strictly greater than key
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j--;
