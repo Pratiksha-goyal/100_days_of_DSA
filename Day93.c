@@ -1,4 +1,5 @@
 // Sort an array using insertion sort.
+
 #include <stdio.h>
 
 int main() {
